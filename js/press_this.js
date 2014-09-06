@@ -34,7 +34,7 @@ window.onload = function () {
 	}
 
 	var content = document.getElementById("content");
-	var match = content.value.match("<p><a href='(.+)'>(.*)</a>\.</p>");
+	var match = content.value.match("<a href='(.+)'>(.*)</a>\.");
 	var prefix = content_prefixes[type] +
 		" <a class='" + classes[type] + "' href='" + match[1] + "'>";
 
