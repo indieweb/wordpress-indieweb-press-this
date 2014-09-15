@@ -1,6 +1,13 @@
 // IndieWeb Press This bookmarklet tweaks. Use indieweb categories, set
 // microformats2 classes on link and remove text.
 
+if (window.parent !== window) {
+	window.parent.postMessage(JSON.stringify({
+		// The config of your reply endpoint
+		reply: 'https://notizblog.org/wp-admin/press-this.php?u={url}'
+	}), '*');
+}
+
 /* map type to mf2 class(es), wordpress category id, and content prefix */
 var classes = {
 	"like": "u-like u-like-of",
@@ -35,6 +42,12 @@ window.onload = function () {
 
 	var content = document.getElementById("content");
 	var match = content.value.match("<a href='(.+)'>(.*)</a>\.");
+
+	// check match
+	if (!match) {
+		return;
+	}
+
 	var prefix = content_prefixes[type] +
 		" <a class='" + classes[type] + "' href='" + match[1] + "'>";
 
