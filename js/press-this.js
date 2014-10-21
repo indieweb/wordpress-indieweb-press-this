@@ -16,10 +16,10 @@ var classes = {
 	"rsvp": "u-in-reply-to"
 };
 var content_prefixes = {
-	"like": "likes",
+	"like": "likes ",
 	"reply": "",
-	"repost": "reposted",
-	"rsvp": "RSVPs <data class='p-rsvp' value='XXX'>XXX</data> to"
+	"repost": "reposted ",
+	"rsvp": "RSVPs <data class='p-rsvp' value='XXX'>XXX</data> to "
 };
 
 window.onload = function () {
@@ -49,7 +49,7 @@ window.onload = function () {
 	}
 
 	var prefix = content_prefixes[type] +
-		" <a class='" + classes[type] + "' href='" + match[1] + "'>";
+		"<a class='" + classes[type] + "' href='" + match[1] + "'>";
 
 	if (match[1].startsWith("https://www.facebook.com/")) {
 		/* Facebook. Add embed and Bridgy publish link. */
@@ -82,15 +82,19 @@ window.onload = function () {
 		}
 		content.value += '\n\
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> \n\
-<blockquote class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
+<cite class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
 <a href="' + match[1] + '"></a> \n\
-</blockquote> \n\
+</cite> \n\
 <a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link"></a>';
 
 	} else {
 		/* Other post. Include title directly. */
-		content.value = prefix +
-			(type == "reply" ? "" : title ? match[2] : "this") + "</a>";
+		if (type == 'reply') {
+			content.value = '\n' + prefix;
+		}  else {
+			content.value = prefix + (title ? match[2] : "this");
+		}
+		content.value += "</a>";
 	}
 
 	content.focus();
