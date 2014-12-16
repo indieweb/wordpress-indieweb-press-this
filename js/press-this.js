@@ -13,13 +13,15 @@ var classes = {
 	"like": "u-like u-like-of",
 	"reply": "u-in-reply-to",
 	"repost": "u-repost u-repost-of",
-	"rsvp": "u-in-reply-to"
+	"rsvp": "u-in-reply-to",
+	"checkin": ""
 };
 var content_prefixes = {
 	"like": "likes ",
 	"reply": "",
 	"repost": "reposted ",
-	"rsvp": "RSVPs <data class='p-rsvp' value='XXX'>XXX</data> to "
+	"rsvp": "RSVPs <data class='p-rsvp' value='XXX'>XXX</data> to ",
+	"checkin": ""
 };
 
 window.onload = function () {
@@ -51,6 +53,9 @@ window.onload = function () {
 
 	var elem = document.getElementById("title");
 	title = elem.value;
+	if (type == 'checkin') {
+		elem.value = '';
+	}
 	if (title.length > 60) {
 		title = title.substr(0, 60) + "...";
 	}
@@ -66,6 +71,8 @@ window.onload = function () {
 	var prefix = content_prefixes[type] +
 		"<a class='" + classes[type] + "' href='" + match[1] + "'>";
 
+	// TODO(snarfed): ugh, this logic is such spaghetti. Rewrite it all, maybe
+	// with templates.
 	if (match[1].startsWith("https://www.facebook.com/") ||
 		match[1].startsWith("https://m.facebook.com/")) {
 		/* Facebook. Add embed and Bridgy publish link. */
@@ -105,12 +112,18 @@ window.onload = function () {
 
 	} else {
 		/* Other post. Include title directly. */
-		if (type == 'reply') {
-			content.value = '\n' + prefix;
-		}  else {
-			content.value = prefix + (title ? match[2] : "this");
+		var name = title ? match[2] : "this";
+		if (type == 'checkin') {
+			content.value = '\
+<blockquote class="h-as-checkin">\n\
+Checked into <a class="h-event" href="' + match[1] + '">' + name + '</a>\n\
+at <a class="h-card p-location" href=""></a>\n\
+with <a class="h-card" href=""></a>.\n\
+</blockquote>';
+		} else {
+			content.value = (type == 'reply' ? ('\n' + prefix) : (prefix + name)) +
+				'</a>\n<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link"></a>';
 		}
-		content.value += "</a>";
 	}
 
 	content.focus();
