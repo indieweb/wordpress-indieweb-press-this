@@ -105,9 +105,9 @@ window.onload = function () {
 		}
 		content.value += '\n\
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> \n\
-<cite class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
+<blockquote class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
 <a href="' + match[1] + '"></a> \n\
-</cite> \n\
+</blockquote> \n\
 <a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link"></a>';
 
 	} else {
