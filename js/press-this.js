@@ -108,7 +108,16 @@ window.onload = function () {
 <blockquote class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
 <a href="' + match[1] + '"></a> \n\
 </blockquote> \n\
-<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link"></a>';
+<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting"></a>';
+
+	} else if (match[1].startsWith("http://instagram.com/")) {
+		/* Instagram. Add embed and Bridgy publish link. */
+		content.value = prefix + 'this post</a>:\n\
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>\n\
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style="margin: 0 auto;">\n\
+  <a href="' + match[1] + '" target="_top"></a>\n\
+</blockquote>\n\
+<a href="https://www.brid.gy/publish/instagram" class="u-bridgy-omit-link"></a>';
 
 	} else {
 		/* Other post. Include title directly. */
