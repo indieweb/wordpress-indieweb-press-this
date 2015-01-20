@@ -62,21 +62,19 @@ window.onload = function () {
 
 	var content = document.getElementById("content");
 	var match = content.value.match("<a href='(.+)'>(.*)</a>\.");
+
+	// check match
 	if (!match) {
 		return;
 	}
-	var facebook = (match[1].startsWith("https://www.facebook.com/") ||
-					match[1].startsWith("https://m.facebook.com/"));
-	var twitter = (match[1].startsWith("https://twitter.com/") ||
-				   match[1].startsWith("https://mobile.twitter.com/"));
-	var instagram = match[1].startsWith("http://instagram.com/");
 
 	var prefix = content_prefixes[type] +
 		"<a class='" + classes[type] + "' href='" + match[1] + "'>";
 
 	// TODO(snarfed): ugh, this logic is such spaghetti. Rewrite it all, maybe
 	// with templates.
-	if (facebook) {
+	if (match[1].startsWith("https://www.facebook.com/") ||
+		match[1].startsWith("https://m.facebook.com/")) {
 		/* Facebook. Add embed and Bridgy publish link. */
 		if (type == 'rsvp') {
 			content.value = prefix + 'this event</a>:';
@@ -97,7 +95,8 @@ window.onload = function () {
 <div class="fb-post" data-href="' + match[1] + '"></div> \n\
 <a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link"></a>';
 
-	} else if (twitter) {
+	} else if (match[1].startsWith("https://twitter.com/") ||
+		match[1].startsWith("https://mobile.twitter.com/")) {
 		/* Twitter. Add embed and Bridgy publish link. */
 		if (type == 'reply') {
 			content.value = '\n' + prefix + '</a>';
@@ -111,7 +110,7 @@ window.onload = function () {
 </blockquote> \n\
 <a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting"></a>';
 
-	} else if (instagram) {
+	} else if (match[1].startsWith("http://instagram.com/")) {
 		/* Instagram. Add embed and Bridgy publish link. */
 		content.value = prefix + 'this post</a>:\n\
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>\n\
@@ -138,9 +137,6 @@ with <a class="h-card" href=""></a>.\n\
 
 	content.focus();
 	content.setSelectionRange(0, 0);
-	if ((facebook || twitter || instagram) && (type == 'like' || type == 'repost')) {
-		content.form.submit();
-	}
 }
 
 // Polyfill String.startsWith() since it's only supported in Firefox right now.
