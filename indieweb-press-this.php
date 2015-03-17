@@ -45,42 +45,43 @@ class IndieWebPressThis {
   public function bookmarklets_page() {
   ?>
     <div class="tool-box">
-      <h3 class="title"><?php _e('IndieWeb bookmarklets', 'indieweb_press_this') ?></h3>
+      <div class="postbox press-this-install">
+        <h3 class="title"><?php _e('IndieWeb bookmarklets', 'indieweb_press_this') ?></h3>
+        <p>
+          One big <a href="http://indiewebcamp.com/">IndieWeb</a> <em>raison d’être</em> is using your own
+          web site to <a href="http://indiewebcamp.com/reply">reply</a>,
+          <a href="http://indiewebcamp.com/like">like</a>, <a href="http://indiewebcamp.com/repost">repost</a>,
+          and <a href="http://indiewebcamp.com/rsvp">RSVP</a> to posts and events. You do this by
+          annotating links on your site with simple
+          <a href="http://microformats.org/wiki/microformats2">microformats2</a> HTML.
+        </p>
 
-      <p>
-        One big <a href="http://indiewebcamp.com/">IndieWeb</a> <em>raison d’être</em> is using your own
-        web site to <a href="http://indiewebcamp.com/reply">reply</a>,
-        <a href="http://indiewebcamp.com/like">like</a>, <a href="http://indiewebcamp.com/repost">repost</a>,
-        and <a href="http://indiewebcamp.com/rsvp">RSVP</a> to posts and events. You do this by
-        annotating links on your site with simple
-        <a href="http://microformats.org/wiki/microformats2">microformats2</a> HTML.
-      </p>
+        <p>
+          Having said that, most people don’t want to write HTML just to like or reply to
+          something. WordPress’s
+          <a href="http://codex.wordpress.org/Press_This">Press This bookmarklets</a> can already
+          start a new post with a link to the page you’re currently viewing. This code
+          adds IndieWeb microformats2 markup to that link. Combined the
+          <a href="https://github.com/pfefferle/wordpress-webmention">wordpress-webmention</a>
+          plugin, you can use this to respond to the current page with just two clicks.
+        </p>
 
-      <p>
-        Having said that, most people don’t want to write HTML just to like or reply to
-        something. WordPress’s
-        <a href="http://codex.wordpress.org/Press_This">Press This bookmarklets</a> can already
-        start a new post with a link to the page you’re currently viewing. This code
-        adds IndieWeb microformats2 markup to that link. Combined the
-        <a href="https://github.com/pfefferle/wordpress-webmention">wordpress-webmention</a>
-        plugin, you can use this to respond to the current page with just two clicks.
-      </p>
+        <p>
+          What’s more, if you’re currently on a Facebook post or Twitter tweet, this adds
+          the <a href="https://www.brid.gy/about#publish">Bridgy Publish</a> link that will reply,
+          like, favorite, retweet, or even RSVP <em>inside</em> those social networks.
+        </p>
 
-      <p>
-        What’s more, if you’re currently on a Facebook post or Twitter tweet, this adds
-        the <a href="https://www.brid.gy/about#publish">Bridgy Publish</a> link that will reply,
-        like, favorite, retweet, or even RSVP <em>inside</em> those social networks.
-      </p>
+        <p><small>— <cite><a href="https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress">snarfed.org</a></cite></small></p>
 
-      <p><small>— <cite><a href="https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress">snarfed.org</a></cite></small></p>
-
-      <p class="description"><?php _e('Drag-and-drop the following link to your bookmarks bar or right click it and add it to your favorites for a posting shortcut.') ?></p>
-      <p>
-        <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("reply"); ?>"><span>Reply</span></a></div>
-        <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("like"); ?>"><span>Like</span></a></div>
-        <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("repost"); ?>"><span>Repost</span></a></div>
-        <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("rsvp"); ?>"><span>RSVP</span></a></div>
-      </p>
+        <p class="description"><?php _e('Drag-and-drop the following link to your bookmarks bar or right click it and add it to your favorites for a posting shortcut.') ?></p>
+        <p>
+          <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("reply"); ?>"><span>Reply</span></a></div>
+          <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("like"); ?>"><span>Like</span></a></div>
+          <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("repost"); ?>"><span>Repost</span></a></div>
+          <div class="pressthis" style="display: inline-block;"><a href="<?php echo self::generate_bookmarklet_js("rsvp"); ?>"><span>RSVP</span></a></div>
+        </p>
+      </div>
     </div>
   <?php
   }
