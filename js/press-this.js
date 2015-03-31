@@ -130,8 +130,7 @@ at <a class="h-card p-location" href=""></a>\n\
 with <a class="h-card" href=""></a>.\n\
 </blockquote>';
 		} else {
-			content.value = (type == 'reply' ? ('\n' + prefix) : (prefix + name)) +
-				'</a>\n<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link"></a>';
+			content.value = (type == 'reply' ? ('\n' + prefix) : (prefix + name));
 		}
 	}
 
