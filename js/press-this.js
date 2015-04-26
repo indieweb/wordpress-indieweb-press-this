@@ -94,7 +94,7 @@ window.onload = function () {
   fjs.parentNode.insertBefore(js, fjs); \n\
 }(document, "script", "facebook-jssdk"));</script> \n\
 <div class="fb-post" data-href="' + url + '"></div> \n\
-<a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link"></a>';
+<a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link">&nbsp;</a>';
 
 	} else if (url.startsWith("https://twitter.com/") ||
 		url.startsWith("https://mobile.twitter.com/")) {
@@ -107,18 +107,18 @@ window.onload = function () {
 		content.innerHTML += '\n\
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> \n\
 <blockquote class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
-<a href="' + url + '"></a> \n\
+<a href="' + url + '">&nbsp;</a> \n\
 </blockquote> \n\
-<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting"></a>';
+<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting">&nbsp;</a>';
 
 	} else if (url.startsWith("http://instagram.com/")) {
 		/* Instagram. Add embed and Bridgy publish link. */
 		content.innerHTML = prefix + 'this post</a>:\n\
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>\n\
 <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style="margin: 0 auto;">\n\
-  <a href="' + url + '" target="_top"></a>\n\
+  <a href="' + url + '" target="_top">&nbsp;</a>\n\
 </blockquote>\n\
-<a href="https://www.brid.gy/publish/instagram" class="u-bridgy-omit-link"></a>';
+<a href="https://www.brid.gy/publish/instagram" class="u-bridgy-omit-link">&nbsp;</a>';
 
 	} else {
 		/* Other post. Include title directly. */
@@ -127,8 +127,8 @@ window.onload = function () {
 			content.innerHTML = '\
 <blockquote class="h-as-checkin">\n\
 Checked into <a class="h-event" href="' + url + '">' + name + '</a>\n\
-at <a class="h-card p-location" href=""></a>\n\
-with <a class="h-card" href=""></a>.\n\
+at <a class="h-card p-location" href="">&nbsp;</a>\n\
+with <a class="h-card" href="">&nbsp;</a>.\n\
 </blockquote>';
 		} else {
 			content.innerHTML = (type == 'reply' ? ('\n' + prefix) : (prefix + name))
