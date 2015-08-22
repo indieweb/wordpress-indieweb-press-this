@@ -1,10 +1,10 @@
 # IndieWeb press this
 
 _As of
-[`164e26c`](https://github.com/pfefferle/wordpress-indieweb-press-this/commit/164e26c1b4df1aa1370e2afec43b93df9919562e)
-(2015-04-26), this plugin REQUIRES WordPress 4.2. If you want to use it with a
+[`1e8acea`](https://github.com/pfefferle/wordpress-indieweb-press-this/commit/1e8acea47c53921d6f12f53527071e57f74ff7c3)
+(2015-08-21), this plugin REQUIRES WordPress 4.3. If you want to use it with a
 previous WordPress version, use
-[`e667892`](https://github.com/pfefferle/wordpress-indieweb-press-this/tree/e667892305cda533be866a79ff2c1850fae9c5d6) instead._
+[`164e26c`](https://github.com/pfefferle/wordpress-indieweb-press-this/tree/164e26c1b4df1aa1370e2afec43b93df9919562e) instead._
 
 This plugin is based on the idea and code of
 [@snarfed](https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress):
