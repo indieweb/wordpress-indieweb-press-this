@@ -18,7 +18,7 @@ var classes = {
 };
 var content_prefixes = {
 	"like": "likes ",
-	"reply": "&nbsp;",
+	"reply": "",
 	"repost": "reposted ",
 	"rsvp": "RSVPs <data class='p-rsvp' value='XXX'>XXX</data> to ",
 	"checkin": ""
@@ -60,31 +60,30 @@ window.onload = function () {
 		title = title.substr(0, 60) + "...";
 	}
 
-    // this is a <body contentEditable="true">
-	var content = document.getElementById('pressthis_ifr')
-		.contentDocument.getElementById('tinymce');
-	var link = content.getElementsByTagName('a')[0];
-	if (!content || !link) {
+    // this is a <textarea>
+	var content = document.getElementById("pressthis");
+	var match = content.value.match('<a href="(.+)">(.*)</a>');
+	if (!match) {
 		return;
 	}
 
-	var url = link.href;
+    var url = match[1];
 	var prefix = content_prefixes[type] +
 		"<a class='" + classes[type] + "' href='" + url + "'>";
 
 	// TODO(snarfed): ugh, this logic is such spaghetti. Rewrite it all, maybe
 	// with templates.
-	if (url.startsWith("https://www.facebook.com/") ||
-		url.startsWith("https://m.facebook.com/")) {
+	if (match[1].startsWith("https://www.facebook.com/") ||
+		match[1].startsWith("https://m.facebook.com/")) {
 		/* Facebook. Add embed and Bridgy publish link. */
 		if (type == 'rsvp') {
-			content.innerHTML = prefix + 'this event</a>:';
+			content.value = prefix + 'this event</a>:';
 		} else if (type == 'reply') {
-			content.innerHTML = '\n' + prefix + '&nbsp;</a>';
+			content.value = '\n' + prefix + '</a>';
 		} else {
-			content.innerHTML = prefix + 'this post</a>:';
+			content.value = prefix + 'this post</a>:';
 		}
-		content.innerHTML += '\n\
+		content.value += '\n\
 <div id="fb-root"></div> \n\
 <script>(function(d, s, id) { \n\
   var js, fjs = d.getElementsByTagName(s)[0]; \n\
@@ -94,50 +93,50 @@ window.onload = function () {
   fjs.parentNode.insertBefore(js, fjs); \n\
 }(document, "script", "facebook-jssdk"));</script> \n\
 <div class="fb-post" data-href="' + url + '"></div> \n\
-<a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link">&nbsp;</a>';
+<a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link"></a>';
 
 	} else if (url.startsWith("https://twitter.com/") ||
 		url.startsWith("https://mobile.twitter.com/")) {
 		/* Twitter. Add embed and Bridgy publish link. */
 		if (type == 'reply') {
-			content.innerHTML = '\n' + prefix + '&nbsp;</a>';
+			content.value = '\n' + prefix + '</a>';
 		} else {
-			content.innerHTML = prefix + 'this tweet</a>:';
+			content.value = prefix + 'this tweet</a>:';
 		}
-		content.innerHTML += '\n\
+		content.value += '\n\
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> \n\
 <blockquote class="twitter-tweet" lang="en" data-conversation="none" data-dnt="true"> \n\
-<a href="' + url + '">&nbsp;</a> \n\
+<a href="' + url + '"></a> \n\
 </blockquote> \n\
-<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting">&nbsp;</a>';
+<a href="https://www.brid.gy/publish/twitter" class="u-bridgy-omit-link u-bridgy-ignore-formatting"></a>';
 
 	} else if (url.startsWith("http://instagram.com/")) {
 		/* Instagram. Add embed and Bridgy publish link. */
-		content.innerHTML = prefix + 'this post</a>:\n\
+		content.value = prefix + 'this post</a>:\n\
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>\n\
 <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style="margin: 0 auto;">\n\
-  <a href="' + url + '" target="_top">&nbsp;</a>\n\
+  <a href="' + url + '" target="_top"></a>\n\
 </blockquote>\n\
-<a href="https://www.brid.gy/publish/instagram" class="u-bridgy-omit-link">&nbsp;</a>';
+<a href="https://www.brid.gy/publish/instagram" class="u-bridgy-omit-link"></a>';
 
 	} else {
 		/* Other post. Include title directly. */
-		var name = title ? link.textContent : "this";
+		var name = title ? match[2] : "this";
 		if (type == 'checkin') {
-			content.innerHTML = '\
+			content.value = '\
 <blockquote class="h-as-checkin">\n\
 Checked into <a class="h-event" href="' + url + '">' + name + '</a>\n\
-at <a class="h-card p-location" href="">&nbsp;</a>\n\
-with <a class="h-card" href="">&nbsp;</a>.\n\
+at <a class="h-card p-location" href=""></a>\n\
+with <a class="h-card" href=""></a>.\n\
 </blockquote>';
 		} else {
-			content.innerHTML = (type == 'reply' ? ('\n' + prefix) : (prefix + name))
-		        + '&nbsp;</a>';
+			content.value = (type == 'reply' ? ('\n' + prefix) : (prefix + name))
+		        + '</a>';
 		}
 	}
 
 	content.focus();
-	// tinymce.setSelectionRange(0, 0);
+	content.setSelectionRange(0, 0);
 }
 
 // Polyfill String.startsWith() since it's only supported in Firefox right now.
