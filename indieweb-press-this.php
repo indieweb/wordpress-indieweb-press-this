@@ -1,8 +1,8 @@
 <?php
 /*
  Plugin Name: IndieWeb Press This
- Plugin URI: https://github.com/pfefferle/wordpress-webmention
- Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this.
+ Plugin URI: http://github.com/pfefferle/wordpress-indieweb-press-this
+ Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this. After activating, go to the Tools tab to install the bookmarklets.
  Author: pfefferle, snarfed
  Author URI: http://github.com/pfefferle/wordpress-indieweb-press-this
  Version: 1.0.0-dev
