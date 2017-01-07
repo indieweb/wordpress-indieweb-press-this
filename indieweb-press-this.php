@@ -47,10 +47,10 @@ class IndieWebPressThis {
   <div class="card">
     <h3 class="title"><?php _e('IndieWeb bookmarklets', 'indieweb_press_this') ?></h3>
     <p>
-      One big <a href="http://indiewebcamp.com/">IndieWeb</a> <em>raison d’être</em> is using your own
-      web site to <a href="http://indiewebcamp.com/reply">reply</a>,
-      <a href="http://indiewebcamp.com/like">like</a>, <a href="http://indiewebcamp.com/repost">repost</a>,
-      and <a href="http://indiewebcamp.com/rsvp">RSVP</a> to posts and events. You do this by
+      One big <a href="https://indieweb.org/">IndieWeb</a> <em>raison d’être</em> is using your own
+      web site to <a href="https://indieweb.org/reply">reply</a>,
+      <a href="https://indieweb.org/like">like</a>, <a href="https://indieweb.org/repost">repost</a>,
+      and <a href="https://indieweb.org/rsvp">RSVP</a> to posts and events. You do this by
       annotating links on your site with simple
       <a href="http://microformats.org/wiki/microformats2">microformats2</a> HTML.
     </p>

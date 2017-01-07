@@ -9,10 +9,10 @@ previous WordPress version, use
 This plugin is based on the idea and code of
 [@snarfed](https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress):
 
-One big [IndieWeb](http://indiewebcamp.com/) _raison d’être_ is using your own
-web site to [reply](http://indiewebcamp.com/reply),
-[like](http://indiewebcamp.com/like), [repost](http://indiewebcamp.com/repost),
-and [RSVP](http://indiewebcamp.com/rsvp) to posts and events. You do this by
+One big [IndieWeb](https://indieweb.org/) _raison d’être_ is using your own
+web site to [reply](https://indieweb.org/reply),
+[like](https://indieweb.org/like), [repost](https://indieweb.org/repost),
+and [RSVP](https://indieweb.org/rsvp) to posts and events. You do this by
 annotating links on your site with simple
 [microformats2](http://microformats.org/wiki/microformats2) HTML.
 
