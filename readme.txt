@@ -1,20 +1,14 @@
-** IndieWeb Press This **
-
-**Contributors:** pfefferle, dshanske
-
-**Donate link:** <https://indieweb.org/how-to-sponsor>
-
-**Tags:** indieweb, webmention, POSSE
-
-**Requires at least:** 4.3
-
-**Tested up to:** 4.7.5
-
-**Stable tag:** 1.0.0
+=== IndieWeb Press This ===
+Contributors: pfefferle, dshanske
+Donate link: https://indieweb.org/how-to-sponsor
+Tags: indieweb, webmention, POSSE
+Requires at least: 4.3
+Tested up to: 4.7.5
+Stable tag: 1.0.0
 
 IndieWebified Press This bookmarklets.
 
- ** Description **
+== Description ==
 
 This plugin is based on the idea and code of
 [@snarfed](https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress):
@@ -32,7 +26,7 @@ something. WordPress’s
 start a new post with a link to the page you’re currently viewing. This code
 adds IndieWeb microformats2 markup to that link. Combined the
 [wordpress-webmention](https://github.com/pfefferle/wordpress-webmention)
-plugin, you can use this to respond to the current page with two clicks.
+plugin, you can use this to respond to the current page with just two clicks.
 
 What’s more, if you’re currently on a Facebook post or Twitter tweet, this adds
 the [Bridgy Publish](https://www.brid.gy/about#publish) link that will reply,
