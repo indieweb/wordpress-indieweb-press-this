@@ -1,0 +1,23 @@
+{
+  "name": "indieweb-press-this",
+  "description": "IndieWebified Press This bookmarklets.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indieweb/wordpress-indieweb-press-this.git"
+  },
+  "keywords": [
+    "indieweb",
+    "webmention",
+    "POSSE"
+  ],
+  "author": "WordPress Outreach Club",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/indieweb/wordpress-indieweb-press-this/issues"
+  },
+  "homepage": "https://github.com/indieweb/wordpress-indieweb-press-this#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-wp-readme-to-markdown": "^2.0.1"
+  }
+}
