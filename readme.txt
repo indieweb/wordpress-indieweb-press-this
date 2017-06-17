@@ -23,6 +23,10 @@ What’s more, if you’re currently on a Facebook post or Twitter tweet, this a
 
 == Changelog ==
 
+= 1.0.1 =
+
+* WordPress.org version
+
 = 1.0.0 =
 
 * initial
