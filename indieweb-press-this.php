@@ -5,7 +5,7 @@
  * Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this. After activating, go to the Tools tab to install the bookmarklets.
  * Author: pfefferle, snarfed
  * Author URI: http://github.com/indieweb/wordpress-indieweb-press-this
- * Version: 1.0.1
+ * Version: 1.0.2
  * License: CC0-1.0
  * License URI: https://creativecommons.org/publicdomain/zero/1.0/
  */
