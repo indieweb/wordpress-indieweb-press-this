@@ -1,10 +1,10 @@
 === IndieWeb Press This ===
-Contributors: pfefferle, dshanske
+Contributors: pfefferle, snarfed
 Donate link: https://indieweb.org/how-to-sponsor
 Tags: indieweb, webmention, POSSE
-Requires at least: 4.3
+Requires at least: 4.7
 Tested up to: 4.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: CC0-1.0
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -22,6 +22,10 @@ Having said that, most people don’t want to write HTML to like or reply to som
 What’s more, if you’re currently on a Facebook post or Twitter tweet, this adds the [Bridgy Publish](https://www.brid.gy/about#publish) link that will reply, like, favorite, retweet, or even RSVP _inside_ those social networks.
 
 == Changelog ==
+
+= 1.0.2 =
+
+* fixed list of contributors
 
 = 1.0.1 =
 
