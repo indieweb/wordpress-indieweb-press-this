@@ -1,0 +1,38 @@
+language: php
+
+notifications:
+  on_success: never
+  on_failure: change
+
+php:
+    - 5.6
+    - 7.0
+
+after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash
+
+env:
+  matrix:
+    - WP_VERSION=latest WP_MULTISITE=0
+    - WP_VERSION=nightly WP_MULTISITE=0
+
+  global:
+    - SVN_REPO: https://plugins.svn.wordpress.org/indieweb-press-this/
+    - GH_REF: https://github.com/indieweb/wordpress-indieweb-press-this.git
+    - secure: "WKTz/kN5Cyp48ffY6B/P1Gj5aSkTnJYy7HVxwoYqNsHhmC/Bqmfq6+JN5lRxCtBy7SnoA50v8DG5Cqk7UU9hJakYLU6ya6VRgif0rZyLM3curvB/BmS3Rta0VG6q/yOZCFM4+20MKLLELqUAhZmED4+/UWcdGofv1I0nbrMO6quJB7pV0cUdNMIUTVPwRZrGUElEkHjwk1YFam71taRUQe7C0gOK7NYvFwsAYGG4pWjzAV2FY6Cb7TnQsFTe95kMUQHO4iizbsY3tTsFixb5xeJwoo/b6ODrkxUSi1eKam5Y1gM4jEppnfkVPtUnERCAU+sW5tOYZA9xEpo6xNaUXOMQXyBt+Q1yG2nGHyMnQMRON01AxTB7nWCv/fs98BW63V9drPyrYaGuIX9RA42+kX/2L2er2viubmUfqoXCX5aHJ4/LWFWCJ7k9Bdp47n7TveXF0IrVhthpVYxn0nexMIh9F3+TEDZHPv3Rx6qdirERWAORvgNV7s1qYS1Tgjf3O4k8zNULZa70WkiOAk6G1PHDK4XUEl8WuZQfmninIp9hBMrysWhiw8CDZieGWMfPJtKexqbrnSyqKRJ9+xDewTO0v/u9DUfW/o9z4h04644QDSO9l2B0bsbakbCOdHJfRHNWRrfSOm5txPpkAiD0sMvdrak6lFVC4f4E60yVEog="
+
+matrix:
+  include:
+    - php: 5.6
+      env: WP_VERSION=latest WP_MULTISITE=0 WP_PULUGIN_DEPLOY=1
+
+before_script:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      composer global require "phpunit/phpunit=5.7.*"
+    elif [[ ${TRAVIS_PHP_VERSION:0:3} != "5.2" ]]; then
+      composer global require "phpunit/phpunit=4.8.*"
+    fi
+  - bash bin/install-wp-tests.sh wordpress root '' localhost $WP_VERSION
+
+script: phpunit
