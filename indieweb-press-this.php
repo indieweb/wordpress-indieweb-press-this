@@ -34,7 +34,7 @@ class IndieWebPressThis {
 	 * @see https://github.com/snarfed/misc/blob/master/press_this.js
 	 */
 	public static function js() {
-		wp_enqueue_script( 'indieweb-press-this', plugins_url( '/js/press-this.js' , __FILE__ ), false, '1.0', true );
+		wp_enqueue_script( 'indieweb-press-this', plugins_url( '/js/press-this.js', __FILE__ ), false, '1.0', true );
 	}
 
 	/**
@@ -44,7 +44,7 @@ class IndieWebPressThis {
 	public static function bookmarklets_page() {
 	?>
 	<div class="card">
-		<h3 class="title"><?php _e( 'IndieWeb bookmarklets', 'indieweb_press_this' ) ?></h3>
+		<h3 class="title"><?php _e( 'IndieWeb bookmarklets', 'indieweb_press_this' ); ?></h3>
 		<p>
 			One big <a href="https://indieweb.org/">IndieWeb</a> <em>raison d’être</em> is using your own
 			web site to <a href="https://indieweb.org/reply">reply</a>,
@@ -72,7 +72,7 @@ class IndieWebPressThis {
 
 		<p><small>— <cite><a href="https://snarfed.org/indieweb-press-this-bookmarklets-for-wordpress">snarfed.org</a></cite></small></p>
 
-		<p class="description"><?php _e( 'Drag-and-drop the following link to your bookmarks bar or right click it and add it to your favorites for a posting shortcut.' ) ?></p>
+		<p class="description"><?php _e( 'Drag-and-drop the following link to your bookmarks bar or right click it and add it to your favorites for a posting shortcut.', 'indieweb_press_this' ); ?></p>
 		<p class="pressthis-bookmarklet-wrapper">
 			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'reply' ); ?>"><span>Reply</span></a>
 			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'like' ); ?>"><span>Like</span></a>
