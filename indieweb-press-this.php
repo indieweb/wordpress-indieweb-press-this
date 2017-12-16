@@ -5,7 +5,7 @@
  * Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this. After activating, go to the Tools tab to install the bookmarklets.
  * Author: IndieWeb WordPress Outreach Club
  * Author URI: https://indieweb.org/WordPress_Outreach_Club
- * Version: 1.0.3
+ * Version: 1.0.4
  * License: CC0-1.0
  * License URI: https://creativecommons.org/publicdomain/zero/1.0/
  */
@@ -58,8 +58,10 @@ class IndieWebPressThis {
 			Having said that, most people don’t want to write HTML just to like or reply to
 			something. WordPress’s
 			<a href="http://codex.wordpress.org/Press_This">Press This bookmarklets</a> can already
-			start a new post with a link to the page you’re currently viewing. This code
-			adds IndieWeb microformats2 markup to that link. Combined the
+			start a new post with a link to the page you’re currently viewing. As of WordPress 4.9, this 
+			is no longer part of WordPress and must be installed 
+			<a href="https://wordpress.org/plugins/press-this/">separately</a></p>
+		<p>	This code adds IndieWeb microformats2 markup to that link. Combined the
 			<a href="https://github.com/pfefferle/wordpress-webmention">wordpress-webmention</a>
 			plugin, you can use this to respond to the current page with just two clicks.
 		</p>
