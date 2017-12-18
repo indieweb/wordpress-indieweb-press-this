@@ -1,5 +1,5 @@
 # IndieWeb Press This #
-**Contributors:** [pfefferle](https://profiles.wordpress.org/pfefferle), [snarfed](https://profiles.wordpress.org/snarfed)  
+**Contributors:** [pfefferle](https://profiles.wordpress.org/pfefferle), [snarfed](https://profiles.wordpress.org/snarfed), [indieweb](https://profiles.wordpress.org/indieweb), [dshanske](https://profiles.wordpress.org/dshanske)  
 **Donate link:** https://indieweb.org/how-to-sponsor  
 **Tags:** indieweb, webmention, POSSE  
 **Requires at least:** 4.7  

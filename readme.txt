@@ -1,5 +1,5 @@
 === IndieWeb Press This ===
-Contributors: pfefferle, snarfed
+Contributors: pfefferle, snarfed, indieweb, dshanske
 Donate link: https://indieweb.org/how-to-sponsor
 Tags: indieweb, webmention, POSSE
 Requires at least: 4.7
