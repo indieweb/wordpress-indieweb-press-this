@@ -92,12 +92,11 @@ window.onload = function () {
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=318683258228687"; \n\
   fjs.parentNode.insertBefore(js, fjs); \n\
 }(document, "script", "facebook-jssdk"));</script> \n\
-<div class="fb-post" data-href="' + url + '"></div> \n\
-<a href="https://www.brid.gy/publish/facebook" class="u-bridgy-omit-link"></a>';
+<div class="fb-post" data-href="' + url + '"></div>';
 
 	} else if (url.startsWith("https://twitter.com/") ||
 		url.startsWith("https://mobile.twitter.com/")) {
-		/* Twitter. Add embed and Bridgy publish link. */
+		/* Twitter. Add embed link. */
 		if (type == 'reply') {
 			content.value = '\n' + prefix + '</a>';
 		} else {
