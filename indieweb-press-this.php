@@ -5,7 +5,7 @@
  * Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this. After activating, go to the Tools tab to install the bookmarklets.
  * Author: IndieWeb WordPress Outreach Club
  * Author URI: https://indieweb.org/WordPress_Outreach_Club
- * Version: 1.0.4
+ * Version: 1.1
  * License: CC0-1.0
  * License URI: https://creativecommons.org/publicdomain/zero/1.0/
  */
@@ -49,8 +49,8 @@ class IndieWebPressThis {
 			One big <a href="https://indieweb.org/">IndieWeb</a> <em>raison d’être</em> is using your own
 			web site to <a href="https://indieweb.org/reply">reply</a>,
 			<a href="https://indieweb.org/like">like</a>, <a href="https://indieweb.org/repost">repost</a>,
-			and <a href="https://indieweb.org/rsvp">RSVP</a> to posts and events. You do this by
-			annotating links on your site with simple
+            <a href="https://indieweb.org/follow">follow</a>, and <a href="https://indieweb.org/rsvp">RSVP</a>
+            to posts and events. You do this by annotating links on your site with simple
 			<a href="http://microformats.org/wiki/microformats2">microformats2</a> HTML.
 		</p>
 
@@ -80,6 +80,7 @@ class IndieWebPressThis {
 			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'like' ); ?>"><span>Like</span></a>
 			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'repost' ); ?>"><span>Repost</span></a>
 			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'rsvp' ); ?>"><span>RSVP</span></a>
+			<a class="pressthis-bookmarklet" href="<?php echo self::generate_bookmarklet_js( 'follow' ); ?>"><span>Follow</span></a>
 		</p>
 	</div>
 	<?php
@@ -88,7 +89,7 @@ class IndieWebPressThis {
 	/**
 	 * a small helper to generate the differnet bookmarklet codes
 	 *
-	 * @param string $type the type of the bookmarklet (reply, like, repost or RSVP)
+	 * @param string $type the type of the bookmarklet (reply, like, repost, follow, or RSVP)
 	 * @return string the JavaScript bookmarket code
 	 */
 	public static function generate_bookmarklet_js( $type = 'reply' ) {
