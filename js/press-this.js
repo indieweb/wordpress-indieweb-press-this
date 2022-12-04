@@ -10,6 +10,7 @@ if (window.parent !== window) {
 
 /* map type to mf2 class(es), wordpress category id, and content prefix */
 var classes = {
+	"follow": "u-follow-of",
 	"like": "u-like u-like-of",
 	"reply": "u-in-reply-to",
 	"repost": "u-repost u-repost-of",
@@ -17,6 +18,7 @@ var classes = {
 	"checkin": ""
 };
 var content_prefixes = {
+	"follow": "follows ",
 	"like": "likes ",
 	"reply": "",
 	"repost": "reposted ",
