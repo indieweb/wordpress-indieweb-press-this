@@ -5,7 +5,7 @@
  * Description: This plugin adds IndieWeb microformats2 markup to WordPress' press this. After activating, go to the Tools tab to install the bookmarklets.
  * Author: IndieWeb WordPress Outreach Club
  * Author URI: https://indieweb.org/WordPress_Outreach_Club
- * Version: 1.2
+ * Version: 1.3
  * License: CC0-1.0
  * License URI: https://creativecommons.org/publicdomain/zero/1.0/
  */
