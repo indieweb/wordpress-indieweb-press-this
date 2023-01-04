@@ -131,7 +131,10 @@ at <a class="h-card p-location" href=""></a>\n\
 with <a class="h-card" href=""></a>.\n\
 </blockquote>';
 		} else {
-			content.value = (type == 'reply' ? ('\n' + prefix) : (prefix + name))
+			// make sure there's some content inside the link, even just &nbsp; , so that
+			// WP doesn't think it's blank and remove it when you switch to the
+			// standard editor
+			content.value = (type == 'reply' ? ('\n' + prefix + '&nbsp;') : (prefix + name))
 		        + '</a>';
 		}
 	}
